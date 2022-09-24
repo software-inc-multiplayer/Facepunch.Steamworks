@@ -3,8 +3,8 @@
 	<PropertyGroup>
 		<AssemblyName>Facepunch.Steamworks.Win64</AssemblyName>
 		<DefineConstants>$(DefineConstants);PLATFORM_WIN64;PLATFORM_WIN;PLATFORM_64</DefineConstants>
-		<TargetFrameworks>netstandard2.1;net6.0;net46</TargetFrameworks>
-		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>	
+		<TargetFrameworks>net48</TargetFrameworks>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
 		<RootNamespace>Steamworks</RootNamespace>
@@ -24,13 +24,13 @@
 		<RepositoryType>git</RepositoryType>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
-  
+
 	<ItemGroup>
 		<None Include="Facepunch.Steamworks.jpg">
 			<Pack>true</Pack>
 			<PackagePath>/</PackagePath>
 		</None>
-		<None Include="steam_api64.dll">
+		<None Include="new_steam_api64.dll">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 			<Pack>true</Pack>
 			<PackagePath>content</PackagePath>
@@ -43,13 +43,13 @@
 	  <Exec Command="Copy $(TargetDir)\Facepunch.Steamworks.Win64.* C:\plastic\RustMain\Assets\Plugins\Facepunch.Steamworks\" />
 	  <Exec Command="Copy $(TargetDir)\Facepunch.Steamworks.Posix.* C:\plastic\RustMain\Assets\Plugins\Facepunch.Steamworks\" />
 	</Target>
-  
+
   <Target Name="PostBuildOffice" AfterTargets="PostBuildEvent" Condition="'$(Computername)'=='GARRYSOFFICEPC'">
     <Exec Command="Copy $(TargetDir)\Facepunch.Steamworks.Win64.* C:\Plastic\Rust\Assets\Plugins\Facepunch.Steamworks\" />
     <Exec Command="Copy $(TargetDir)\Facepunch.Steamworks.Posix.* C:\Plastic\Rust\Assets\Plugins\Facepunch.Steamworks\" />
     <Exec Command="Copy $(TargetDir)\Facepunch.Steamworks.Win64.* C:\Git\Facepunch.Steamworks.UnityTest\Assets\Steamworks" />
     <Exec Command="Copy $(TargetDir)\Facepunch.Steamworks.Win32.* C:\Git\Facepunch.Steamworks.UnityTest\Assets\Steamworks" />
     <Exec Command="Copy $(TargetDir)\Facepunch.Steamworks.Posix.* C:\Git\Facepunch.Steamworks.UnityTest\Assets\Steamworks" />
-  </Target>  
+  </Target>
 
 </Project>
